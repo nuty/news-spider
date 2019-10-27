@@ -21,9 +21,7 @@
 
     (define/public (start)
       (for ([url start-urls])
-        (request this url (list 
-                            'save-mate-data
-                            'parse-channel))))
+        (request this url (list 'save-mate-data   'parse-channel))))
 
     (define/public (save-mate-data rsp)
       (define url (response-url rsp))
@@ -58,11 +56,11 @@
               (hash-ref aitem "author" "")
               (hash-ref aitem "date" "")
               (hash-ref aitem "tip" "")
-             ) ", ")
-            "\n"))
+              (hash-ref aitem "content" ""))
+             ", ")
+          "\n"))
       (display line out)
       (close-output-port out))
-
 
   (super-new)))
 
