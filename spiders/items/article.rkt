@@ -7,6 +7,7 @@
 (provide
   article-item)
 
+
 (define article-item
   (item
     (item-field 
@@ -28,6 +29,4 @@
     (item-field
       #:name "content"
       #:xpath "/html/body/div[2]/div[2]/div/div[2]/div[2]"
-      #:filter (λ (x) 
-        (bytes->string/utf-8 
-          (base64-encode (string->bytes/utf-8 (xexpr->string (car x)))))))))
+      #:filter (λ (x) (xexpr->string (car x))))))
