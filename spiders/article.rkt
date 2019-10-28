@@ -4,9 +4,12 @@
   json
   rapider
   html-parsing
-  "items/article.rkt")
+  "../items/article.rkt")
+
+; 
 
 
+(define partern "/html/body/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div/p")
 
 (define article-spider%
   (class spider%
@@ -55,8 +58,8 @@
           "data/htmls/"
           (last (string-split (response-url rsp) "/")) 
           ".html"))
-      (define out-html (open-output-file html-file #:exists 'replace))
-      (define html (hash-ref (first extra) "content" ""))
+      (define out-html (open-output-file html-file #:exists 'append))
+      (define html (response-content rsp))
       (display html out-html)
       (close-output-port out-html))
 

@@ -28,5 +28,5 @@
      #:filter (λ (x) (string-join x)))
     (item-field
       #:name "content"
-      #:xpath "/html/body/div[2]/div[2]/div/div[2]/div[2]"
+      #:xpath "/html/body/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div"
       #:filter (λ (x) (xexpr->string (car x))))))

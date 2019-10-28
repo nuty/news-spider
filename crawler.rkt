@@ -1,7 +1,7 @@
 #lang racket
 (require 
   rapider
-  "spiders/spider.rkt")
+  "spiders/article.rkt")
 
 
 (run-spider article-spider%)
