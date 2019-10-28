@@ -1,10 +1,2 @@
-*.ss~
 *.html
-*.ss#*
-.#*.ss
-.#*.html
-
-*.scm~
-*.scm#*
-.#*.scm
 data

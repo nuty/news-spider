@@ -4,18 +4,14 @@
   json
   rapider
   html-parsing
-  "../items/article.rkt")
-
-; 
+  "../items/eefocus.rkt")
 
 
-(define partern "/html/body/div[2]/div[2]/div/div[2]/div[2]/div[1]/div/div/p")
-
-(define article-spider%
+(define eefocus-spider%
   (class spider%
 
     (init-field 
-      (name "article")
+      (name "eefocus")
       (header '("User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) 
               AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36"))
       
@@ -55,7 +51,7 @@
     (define/public (save-to-html rsp extra)
       (define html-file
         (string-append 
-          "data/htmls/"
+          "data/htmls/eefocus/"
           (last (string-split (response-url rsp) "/")) 
           ".html"))
       (define out-html (open-output-file html-file #:exists 'append))
@@ -64,7 +60,7 @@
       (close-output-port out-html))
 
     (define/public (save-to-csv rsp extra)
-      (define csv-file "data/meta.csv")
+      (define csv-file "data/csv/eefocus.csv")
       (define out-csv (open-output-file csv-file #:exists 'append))
       (let* 
         ([item (first extra)]
@@ -96,4 +92,4 @@
 
 ;
 
-(provide article-spider%)
+(provide eefocus-spider%)

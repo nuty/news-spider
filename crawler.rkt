@@ -1,7 +1,11 @@
 #lang racket
 (require 
   rapider
-  "spiders/article.rkt")
+  "spiders/eefocus.rkt"
+  "spiders/moore.rkt"
+  "spiders/semiinsights.rkt")
 
 
-(run-spider article-spider%)
+; (run-spider eefocus-spider%)
+; (run-spider semiinsights-spider%)
+(run-spider moore-spider%)
