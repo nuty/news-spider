@@ -90,6 +90,5 @@
 
   (super-new)))
 
-;
 
 (provide eefocus-spider%)

@@ -42,12 +42,3 @@
       #:name "date"
       #:xpath "//*[@class='date']/text()"
       #:filter (λ (x) (car x)))))
-
-
-(define content-item
-  (item
-    (item-field 
-      #:name "url" 
-      #:xpath "*//a/@href/text()"
-      #:filter (λ (x) (car x)))
-  ))

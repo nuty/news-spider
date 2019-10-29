@@ -8,7 +8,6 @@
   "../items/semiinsights.rkt")
 
 
-
 (define semiinsights-spider%
   (class spider%
     (init-field 
@@ -36,7 +35,6 @@
         (request this (hash-ref before "url") 'parse-content before)))
 
     (define/public (parse-content rsp extra)
-      (define url (response-url rsp))
       (next this rsp 'save-to-html)
       (next this extra 'save-to-csv))
 
@@ -71,7 +69,6 @@
         (close-output-port out-csv)))
 
   (super-new)))
-
 
 
 (provide semiinsights-spider%)
