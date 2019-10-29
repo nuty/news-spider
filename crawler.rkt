@@ -7,5 +7,5 @@
 
 
 ; (run-spider eefocus-spider%)
-; (run-spider semiinsights-spider%)
-(run-spider moore-spider%)
+(run-spider semiinsights-spider%)
+; (run-spider moore-spider%)

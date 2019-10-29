@@ -36,7 +36,7 @@
 
     (define/public (parse-content rsp extra)
       (next this rsp 'save-to-html)
-      (next this extra 'save-to-csv))
+      (next this extra 'to-csv))
 
     (define/public (save-to-html rsp)
       (define url (response-url rsp))
@@ -50,23 +50,11 @@
       (display html out-html)
       (close-output-port out-html))
 
-    (define/public (save-to-csv data)
-      (define csv-file "data/csv/semiinsights.csv")
-      (define out-csv (open-output-file csv-file #:exists 'append))
-      (let ([line (string-append
-            (string-join 
-              (list 
-                (hash-ref data "url" "暂无")
-                (hash-ref data "cover" "暂无") 
-                (hash-ref data "title" "暂无") 
-                (hash-ref data "summary" "暂无") 
-                (hash-ref data "author" "暂无") 
-                (hash-ref data "date" "暂无") 
-                (hash-ref data "category" "暂无") 
-                (hash-ref data "category-url" "暂无")
-              ) ", ") "\n")])
-        (display line out-csv)
-        (close-output-port out-csv)))
+    (define/public (to-csv data)
+      (define out-csv (open-output-file "data/csv/semiinsights1.csv" #:exists 'append))
+      (save-to-csv
+        #:values-list (hash-values data)
+        #:csv-port out-csv))
 
   (super-new)))
 
